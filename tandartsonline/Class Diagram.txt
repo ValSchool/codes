@@ -1,0 +1,66 @@
+Classes
+User
+
+Attributes:
+user_id: int
+first_name: string
+last_name: string
+email: string
+password: string
+phone_number: string
+role: string (values: 'patient', 'dentist')
+created_at: datetime
+updated_at: datetime
+Methods:
+register()
+login()
+updateProfile()
+Appointment
+
+Attributes:
+appointment_id: int
+patient: User
+dentist: User
+appointment_date: datetime
+appointment_status: string (values: 'scheduled', 'confirmed', 'canceled', 'completed')
+notes: string
+created_at: datetime
+updated_at: datetime
+Methods:
+scheduleAppointment()
+updateAppointment()
+cancelAppointment()
+DentistSchedule
+
+Attributes:
+schedule_id: int
+dentist: User
+available_day: string (values: 'Monday', 'Tuesday', etc.)
+start_time: time
+end_time: time
+created_at: datetime
+updated_at: datetime
+Methods:
+addSchedule()
+updateSchedule()
+removeSchedule()
+AppointmentHistory
+
+Attributes:
+history_id: int
+appointment: Appointment
+status_change: string
+changed_at: datetime
+changed_by: User
+Methods:
+recordHistory()
+Notification
+
+Attributes:
+notification_id: int
+user: User
+notification_type: string (values: 'email', 'sms')
+message: string
+sent_at: datetime
+Methods:
+sendNotification()
